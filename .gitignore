@@ -8,3 +8,4 @@ gradlew.bat
 app/build
 app/libs
 app/proguard-rules.pro
+app/src/main/res/drawable/
