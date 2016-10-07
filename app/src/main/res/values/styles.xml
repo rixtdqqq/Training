@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="ContentOverlayCustom" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="CustomTextStyle16666">
+        <item name="android:textSize">@dimen/text_common_16sp</item>
+        <item name="android:textColor">@color/color_4d4c59</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="CustomTextStyle16999">
+        <item name="android:textSize">@dimen/text_common_16sp</item>
+        <item name="android:textColor">@color/color_d1d0d3</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="CustomTextStyle14666">
+        <item name="android:textSize">@dimen/text_common_14sp</item>
+        <item name="android:textColor">@color/color_4d4c59</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="CustomTextStyle14999">
+        <item name="android:textSize">@dimen/text_common_14sp</item>
+        <item name="android:textColor">@color/color_d1d0d3</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="CustomTextStyle12666">
+        <item name="android:textSize">@dimen/text_common_12sp</item>
+        <item name="android:textColor">@color/color_4d4c59</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="CustomTextStyle12999">
+        <item name="android:textSize">@dimen/text_common_12sp</item>
+        <item name="android:textColor">@color/color_d1d0d3</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+</resources>

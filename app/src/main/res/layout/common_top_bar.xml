@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark">
+    <TextView
+        android:id="@+id/top_bar_high_version_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="11dp"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/top_bar_center_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/top_bar_high_version_tv"
+        android:textSize="22sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/top_bar_back_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/top_bar_center_tv"
+        android:layout_alignBottom="@id/top_bar_center_tv"
+        android:layout_centerVertical="true"
+        android:visibility="visible"
+        android:paddingLeft="15dp"/>
+
+    <TextView
+        android:id="@+id/top_bar_right_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:layout_alignTop="@id/top_bar_center_tv"
+        android:layout_alignBottom="@id/top_bar_center_tv"
+        android:paddingRight="15dp"/>
+
+    <TextView
+        android:id="@+id/top_bar_right2_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@id/top_bar_right_tv"
+        android:paddingRight="15dp"
+        android:visibility="gone"
+        android:layout_alignTop="@id/top_bar_center_tv"
+        android:layout_alignBottom="@id/top_bar_center_tv"/>
+
+</RelativeLayout>

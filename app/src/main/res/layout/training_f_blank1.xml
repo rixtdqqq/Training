@@ -1,0 +1,58 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="employee"
+            type="com.zhuyx.training.entity.Employee"/>
+
+        <variable
+            name="presenter"
+            type="com.zhuyx.training.fragment.Blank1Fragment.Presenter"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.zhuyx.training.fragment.Blank1Fragment">
+
+        <EditText
+            style="@style/CustomTextStyle14666"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onTextChanged="@{presenter.onTextChanged}"/>
+
+        <TextView
+            style="@style/CustomTextStyle14666"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{presenter.onClick}"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@{employee.id}"/>
+
+        <TextView
+            style="@style/CustomTextStyle14666"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@{employee.name}"/>
+
+        <TextView
+            style="@style/CustomTextStyle14666"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.setOnClick(employee)}"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@{employee.gender}"/>
+
+        <TextView
+            style="@style/CustomTextStyle14666"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/activity_horizontal_margin"
+            android:text="@{employee.age}"/>
+
+    </LinearLayout>
+</layout>
