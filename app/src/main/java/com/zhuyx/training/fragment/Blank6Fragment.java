@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zhuyx.training.R;
 import com.zhuyx.training.base.TrainingBaseFragment;
@@ -17,7 +18,6 @@ import com.zhuyx.training.base.TrainingBaseFragment;
 public class Blank6Fragment extends TrainingBaseFragment implements RadioGroup.OnCheckedChangeListener {
 
     private RadioGroup mRadioGroup;
-    private TextView mTextView;
 
     @Override
     public void onAttach(Context context) {
@@ -38,7 +38,6 @@ public class Blank6Fragment extends TrainingBaseFragment implements RadioGroup.O
     @Override
     public void initView(View view) {
         mRadioGroup = (RadioGroup) view.findViewById(R.id.radio_group);
-        mTextView = (TextView) view.findViewById(R.id.tv);
         mRadioGroup.setOnCheckedChangeListener(this);
     }
 
@@ -50,7 +49,7 @@ public class Blank6Fragment extends TrainingBaseFragment implements RadioGroup.O
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
         RadioButton rb = (RadioButton) group.findViewById(checkedId);
-        mTextView.setText(rb.getText().toString());
+        Toast.makeText(getActivity(), rb.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 
     private void setRadioButton(String[] select) {
