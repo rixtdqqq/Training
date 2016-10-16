@@ -44,7 +44,7 @@ public class TrainingMainActivity extends TrainingBaseActivity implements Common
         fragments.add(new Blank4Fragment());
         fragments.add(new Blank5Fragment());
         fragments.add(new Blank6Fragment());
-        titles = new String[]{"碎片1", "碎片2", "碎片碎片碎片碎片碎片", "碎片4", "碎片5", "碎片6"};
+        titles = new String[]{"碎片1", "测试Glide", "碎片3", "碎片4", "碎片5", "碎片6"};
     }
 
     @Override
