@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              xmlns:training="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/color_d1d0d3"
+              tools:context="com.zhuyx.training.fragment.Blank7Fragment">
+
+    <com.zhuyx.training.widget.CommonTopBar
+        android:id="@+id/common_top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/common_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.zhuyx.training.widget.TrainingCommonItemView
+                android:id="@+id/training_content_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                training:commonTitle="描述"
+                training:commonContentUnder="描述的具体内容"
+                training:commonContentShow="true"/>
+
+
+            <Button
+                android:id="@+id/btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="返回主页面"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
