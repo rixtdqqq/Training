@@ -11,13 +11,20 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.zhuyx.training.R;
 import com.zhuyx.training.base.TrainingBaseFragment;
 
+/**
+ * 直播：摄像头和麦克风采集到的图像和声音推流到流媒体服务器，观众访问服务器观看直播。
+ * 推流：音频采样数据和视频像素数据（编码：压缩），观众看的时候是解码（解压缩）
+ */
 public class Blank6Fragment extends TrainingBaseFragment implements RadioGroup.OnCheckedChangeListener {
 
     private RadioGroup mRadioGroup;
+
+    private VideoView training_video_view;
 
     @Override
     public void onAttach(Context context) {
@@ -38,12 +45,18 @@ public class Blank6Fragment extends TrainingBaseFragment implements RadioGroup.O
     @Override
     public void initView(View view) {
         mRadioGroup = (RadioGroup) view.findViewById(R.id.radio_group);
+        training_video_view = (VideoView) view. findViewById(R.id.training_video_view);
         mRadioGroup.setOnCheckedChangeListener(this);
     }
 
     @Override
     public void initData() {
         setRadioButton(new String[]{"1月/次", "2月/次", "3月/次", "4月/次"});
+    }
+
+    @Override
+    public void initListeners() {
+
     }
 
     @Override

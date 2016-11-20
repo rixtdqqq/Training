@@ -25,6 +25,8 @@ public class TrainingMainActivity extends TrainingBaseActivity implements Common
     private List<Fragment> fragments = new ArrayList<>();
     private String[] titles;
     private long time;
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,25 +47,30 @@ public class TrainingMainActivity extends TrainingBaseActivity implements Common
         fragments.add(new Blank5Fragment());
         fragments.add(new Blank6Fragment());
         titles = new String[]{"测试dataBinding", "测试Glide", "碎片3", "碎片4", "碎片5", "碎片6"};
+
+        viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragments, titles));
+        viewPager.setOffscreenPageLimit(6);
+        tabLayout.setupWithViewPager(viewPager, true);
     }
 
     @Override
     public void initView() {
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         CommonTopBar topBar = (CommonTopBar) findViewById(R.id.common_top_bar);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager = (ViewPager) findViewById(R.id.view_pager);
         handleTopBar(topBar);
-        viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragments, titles));
-        viewPager.setOffscreenPageLimit(2);
-        tabLayout.setupWithViewPager(viewPager,true);
     }
 
-    private void handleTopBar(CommonTopBar topBar){
+    private void handleTopBar(CommonTopBar topBar) {
         topBar.setCenterView("主界面");
         topBar.setLeftView(R.mipmap.back);
         topBar.setOnTopBarClickListener(this);
     }
 
+    @Override
+    public void loadFragment() {
+
+    }
 
     @Override
     public void onClickLeftView() {

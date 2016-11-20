@@ -15,8 +15,9 @@ public abstract class TrainingBaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        initData();
         initView();
+        initData();
+        loadFragment();
     }
 
     /**
@@ -33,4 +34,6 @@ public abstract class TrainingBaseActivity extends AppCompatActivity {
      * 初始化控件
      */
     public abstract void initView();
+
+    public abstract void loadFragment();
 }

@@ -25,4 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/separate_line_height"
         android:background="@color/colorPrimary"/>
+    <VideoView
+        android:id="@+id/training_video_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

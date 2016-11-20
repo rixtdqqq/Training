@@ -26,8 +26,7 @@ public abstract class TrainingBaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), null);
-        return view;
+        return inflater.inflate(getLayoutId(), container,false);
     }
 
     @Override
@@ -35,6 +34,7 @@ public abstract class TrainingBaseFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initView(view);
         initData();
+        initListeners();
     }
 
     /**
@@ -51,4 +51,9 @@ public abstract class TrainingBaseFragment extends Fragment {
      * 设置初始化数据
      */
     public abstract void initData();
+
+    /**
+     * 设置控件的监听器
+     */
+    public abstract void initListeners();
 }

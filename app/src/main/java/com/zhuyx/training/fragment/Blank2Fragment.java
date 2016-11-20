@@ -123,6 +123,11 @@ public class Blank2Fragment extends TrainingBaseFragment {
 
     }
 
+    @Override
+    public void initListeners() {
+
+    }
+
 
     private void loadSimpleTarget() {
         SimpleTarget mTarget = new SimpleTarget<GifDrawable>() {

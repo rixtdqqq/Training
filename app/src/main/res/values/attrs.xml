@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TrainingCommonItemView">
+        <!--标题-->
+        <attr name="commonTitle" format="string|reference"/>
+        <!--标题的图标-->
+        <attr name="commonLeftImage" format="reference"/>
+        <!--右边的图标-->
+        <attr name="commonRightImage" format="reference"/>
+        <!--标题右边的内容-->
+        <attr name="commonContentRight" format="string|reference"/>
+        <!--标题下方的内容-->
+        <attr name="commonContentUnder" format="string|reference"/>
+        <!--是否展示描述内容-->
+        <attr name="commonContentShow" format="boolean"/>
+        <!--是否展示下划线-->
+        <attr name="commonUnderlineShow" format="boolean"/>
+    </declare-styleable>
+</resources>

@@ -7,6 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="TrainingSplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/training_splash_bg</item>
+    </style>
 
     <style name="ContentOverlayCustom" parent="AppTheme">
         <item name="windowNoTitle">true</item>
@@ -45,7 +48,6 @@
     <style name="CustomTextStyle12999">
         <item name="android:textSize">@dimen/text_common_12sp</item>
         <item name="android:textColor">@color/color_d1d0d3</item>
-        <item name="android:gravity">center_vertical</item>
     </style>
 
 </resources>
