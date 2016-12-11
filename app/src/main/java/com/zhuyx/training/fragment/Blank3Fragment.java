@@ -2,7 +2,6 @@ package com.zhuyx.training.fragment;
 
 
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,7 +17,6 @@ import java.util.concurrent.TimeUnit;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.functions.Func0;
 
 /**
  * Observable：发射源，英文释义“可观察的”，在观察者模式中称为“被观察者”或“可观察对象”；
@@ -41,6 +39,14 @@ public class Blank3Fragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static Blank3Fragment newInstance() {
+
+        Bundle args = new Bundle();
+
+        Blank3Fragment fragment = new Blank3Fragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

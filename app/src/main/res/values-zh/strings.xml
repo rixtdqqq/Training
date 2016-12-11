@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">训练</string>
+    <string name="hello_blank_fragment">练习</string>
+    <string name="training_login">登 录</string>
+    <string name="training_user_name">用户名</string>
+    <string name="training_user_pwd">密码</string>
+    <string name="training_user_email">邮箱</string>
+    <string name="training_name">朱颖鑫</string>
+    <string name="training_share">分享</string>
+    <string name="training_tools">工具</string>
+    <string name="training_collect">收藏</string>
+    <string name="training_gallery">相册</string>
+    <string name="training_wallet">钱包</string>
+    <string name="training_settings">设置</string>
+    <string name="training_qq">QQ:657036139</string>
+    <string name="training_tel">电话:13113603702</string>
+    <string name="training_email">邮箱:rixtdqqq_2015@163.com</string>
+    <string name="training_open">打开</string>
+    <string name="training_close">关闭</string>
+</resources>

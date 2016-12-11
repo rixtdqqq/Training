@@ -2,10 +2,8 @@ package com.zhuyx.training.fragment;
 
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
-import android.text.BoringLayout;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,8 +20,6 @@ import com.zhuyx.training.R;
 import com.zhuyx.training.base.TrainingBaseFragment;
 import com.zhuyx.training.util.TrainingUtils;
 import com.zhuyx.training.widget.TrainingGlideTestView;
-
-import org.antlr.runtime.MismatchedTokenException;
 
 import java.io.File;
 

@@ -1,31 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/training_a_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <com.zhuyx.training.widget.CommonTopBar
-        android:id="@+id/common_top_bar"
+    <!--在Drawerlayout中，主内容视图必须是第一个子视图。因为XML里是按层叠顺序进行排序的，后面的内容会盖过前面的内容，而抽屉视图应位于页面顶部。
+    抽屉视图必须通过"android:layout_gravity"指定其重心位置，建议使用"start"&"end"来支持RTL（从右到左）语言。
+    主内容视图的长宽都应“match_parent”，因为当抽屉收起时它代表整个UI界面。
+    抽屉部分的高度应设为match_parent，而宽度不应超过320dp，以便让用户仍可以看到部分主内容。
+    -->
+    <!-- 主内容 -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        app:tabIndicatorColor="@color/colorPrimaryDark"
-        app:tabMode="scrollable"
-        app:tabIndicatorHeight="4dp"
-        app:tabSelectedTextColor="@color/colorAccent"
-        app:tabTextColor="@color/colorPrimaryDark" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        <TextView
+            android:id="@+id/padding_view"
+            android:layout_width="match_parent"
+            android:layout_height="22dp"
+            android:background="@color/colorPrimary"
+            android:visibility="gone" />
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme">
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                app:contentInsetEnd="0dp"
+                app:contentInsetEndWithActions="0dp"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:logo="@mipmap/weixin_icon"
+                app:navigationIcon="@mipmap/back"
+                app:popupTheme="@style/AppToolbarPopup"
+                app:subtitleTextColor="@android:color/white"
+                app:theme="@style/AppToolbar"
+                app:title="练习"
+                app:titleTextColor="@android:color/white">
+
+                <!--                <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+                                <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="hello~"
+                                android:textColor="@android:color/white"
+                                android:textSize="18sp" />
+                                </LinearLayout>-->
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v4.widget.DrawerLayout
+            android:id="@+id/training_a_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/white"
+                    app:tabIndicatorColor="@color/colorPrimaryDark"
+                    app:tabIndicatorHeight="4dp"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="@color/colorAccent"
+                    app:tabTextColor="@color/colorPrimaryDark" />
+
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <android.support.design.widget.NavigationView
+                android:id="@+id/nav_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/color_d1d0d3"
+                app:headerLayout="@layout/training_nav_header_drawer"
+                app:itemBackground="?attr/colorPrimary"
+                app:itemIconTint="?attr/colorPrimaryDark"
+                app:itemTextColor="@android:color/white"
+                app:menu="@menu/training_menu_drawer" />
+        </android.support.v4.widget.DrawerLayout>
+    </LinearLayout>
 </LinearLayout>

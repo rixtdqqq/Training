@@ -15,7 +15,7 @@ public class TrainingSplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(this, TrainingMainActivity.class));
+        startActivity(new Intent(this, TrainingLoginActivity.class));
         this.finish();
     }
 }

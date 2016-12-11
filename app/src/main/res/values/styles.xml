@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="TrainingSplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/training_splash_bg</item>
     </style>
@@ -22,11 +23,13 @@
         <item name="android:textColor">@color/color_4d4c59</item>
         <item name="android:gravity">center_vertical</item>
     </style>
+
     <style name="CustomTextStyle16999">
         <item name="android:textSize">@dimen/text_common_16sp</item>
         <item name="android:textColor">@color/color_d1d0d3</item>
         <item name="android:gravity">center_vertical</item>
     </style>
+
     <style name="CustomTextStyle14666">
         <item name="android:textSize">@dimen/text_common_14sp</item>
         <item name="android:textColor">@color/color_4d4c59</item>
@@ -50,4 +53,11 @@
         <item name="android:textColor">@color/color_d1d0d3</item>
     </style>
 
+    <style name="AppToolbarPopup" parent="AppTheme">
+        <item name="actionMenuTextColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppToolbar" parent="AppTheme">
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
 </resources>

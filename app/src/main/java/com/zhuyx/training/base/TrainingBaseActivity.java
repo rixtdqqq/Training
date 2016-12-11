@@ -35,5 +35,8 @@ public abstract class TrainingBaseActivity extends AppCompatActivity {
      */
     public abstract void initView();
 
+    /**
+     * 加载fragment
+     */
     public abstract void loadFragment();
 }

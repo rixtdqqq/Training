@@ -1,9 +1,19 @@
 package com.zhuyx.training.activity;
 
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhuyx.training.R;
@@ -15,18 +25,20 @@ import com.zhuyx.training.fragment.Blank3Fragment;
 import com.zhuyx.training.fragment.Blank4Fragment;
 import com.zhuyx.training.fragment.Blank5Fragment;
 import com.zhuyx.training.fragment.Blank6Fragment;
-import com.zhuyx.training.widget.CommonTopBar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrainingMainActivity extends TrainingBaseActivity implements CommonTopBar.onTopBarClickListener {
+public class TrainingMainActivity extends TrainingBaseActivity {
 
     private List<Fragment> fragments = new ArrayList<>();
     private String[] titles;
     private long time;
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    private DrawerLayout drawerLayout;
+    private ActionBarDrawerToggle toggle;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +58,7 @@ public class TrainingMainActivity extends TrainingBaseActivity implements Common
         fragments.add(new Blank4Fragment());
         fragments.add(new Blank5Fragment());
         fragments.add(new Blank6Fragment());
-        titles = new String[]{"测试dataBinding", "测试Glide", "碎片3", "碎片4", "碎片5", "碎片6"};
+        titles = new String[]{"测试dataBinding", "测试Glide", "测试RxJava", "EventBus", "测试Retrofit", "碎片6"};
 
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragments, titles));
         viewPager.setOffscreenPageLimit(6);
@@ -56,15 +68,70 @@ public class TrainingMainActivity extends TrainingBaseActivity implements Common
     @Override
     public void initView() {
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
-        CommonTopBar topBar = (CommonTopBar) findViewById(R.id.common_top_bar);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
-        handleTopBar(topBar);
+        drawerLayout = (DrawerLayout) findViewById(R.id.training_a_main);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        handleToolbar();
+        //配置ActionBarDrawerToggle
+        toggleSettings();
     }
 
-    private void handleTopBar(CommonTopBar topBar) {
-        topBar.setCenterView("主界面");
-        topBar.setLeftView(R.mipmap.back);
-        topBar.setOnTopBarClickListener(this);
+    private void handleToolbar() {
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        TextView paddingView = (TextView) findViewById(R.id.padding_view);
+        if (Build.VERSION_CODES.KITKAT >= Build.VERSION.SDK_INT) {
+            paddingView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+                showSnakeBar("关于", toolbar);
+                break;
+            case R.id.feedback:
+                showSnakeBar("意见反馈", toolbar);
+                break;
+            case R.id.notification:
+                showSnakeBar("通知", toolbar);
+                break;
+            case R.id.search:
+                showSnakeBar("搜索", toolbar);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void showSnakeBar(String text, Toolbar toolbar) {
+        Snackbar.make(toolbar, text, Snackbar.LENGTH_LONG).show();
+    }
+
+    private void toggleSettings() {
+        toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.training_open, R.string.training_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+    @Override
+    public void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        toggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        toggle.onConfigurationChanged(newConfig);
     }
 
     @Override
@@ -72,8 +139,7 @@ public class TrainingMainActivity extends TrainingBaseActivity implements Common
 
     }
 
-    @Override
-    public void onClickLeftView() {
+    private void onClickLeftView() {
         long exitTime = System.currentTimeMillis();
         if (exitTime - time < 2000) {
             this.finish();
@@ -81,16 +147,6 @@ public class TrainingMainActivity extends TrainingBaseActivity implements Common
             Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
             time = exitTime;
         }
-    }
-
-    @Override
-    public void onClickRightView() {
-
-    }
-
-    @Override
-    public void onClickRight2View() {
-
     }
 
     @Override

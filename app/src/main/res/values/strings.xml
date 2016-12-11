@@ -1,6 +1,21 @@
 <resources>
-    <string name="app_name">MyTraining</string>
+    <string name="app_name">Training</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="training_login">Login</string>
+    <string name="training_user_name">Username</string>
+    <string name="training_user_pwd">Password</string>
+    <string name="training_user_email">Email</string>
+    <string name="training_name">Yingxin Zhu</string>
+    <string name="training_share">Share</string>
+    <string name="training_tools">Tools</string>
+    <string name="training_collect">Collect</string>
+    <string name="training_gallery">Gallery</string>
+    <string name="training_wallet">Wallet</string>
+    <string name="training_settings">Settings</string>
+    <string name="training_qq">QQ:657036139</string>
+    <string name="training_tel">Tel:13113603702</string>
+    <string name="training_email">Email:rixtdqqq_2015@163.com</string>
+    <string name="training_open">Open</string>
+    <string name="training_close">Close</string>
 </resources>

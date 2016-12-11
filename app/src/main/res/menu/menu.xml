@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search"
+        android:title="搜索"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/notification"
+        android:title="通知"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/feedback"
+        android:title="反馈意见"
+        android:visible="true"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/about"
+        android:title="关于"
+        android:visible="true"
+        app:showAsAction="never" />
+</menu>
