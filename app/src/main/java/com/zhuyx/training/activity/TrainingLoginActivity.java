@@ -56,8 +56,10 @@ public class TrainingLoginActivity extends TrainingBaseActivity {
         });
         etEmail.setOnEditorActionListener((view,actionId,event)->{
             if (actionId == EditorInfo.IME_ACTION_GO) {
-                startActivity(new Intent(this,TrainingMainActivity.class));
-                finish();
+                if (checkNotNull()) {
+                    startActivity(new Intent(this,TrainingMainActivity.class));
+                    finish();
+                }
             }
             return false;
         });
@@ -73,12 +75,12 @@ public class TrainingLoginActivity extends TrainingBaseActivity {
         } else if (TextUtils.isEmpty(password)) {
             etPassword.setError("请输入密码");
             return false;
-        } else if (TextUtils.isEmpty(email) && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        } else if (TextUtils.isEmpty(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             etEmail.setError("请输入正确的邮箱");
             return false;
         } else {
             TrainingUtils.saveUsername(TrainingLoginActivity.this,userName,password);
+            return true;
         }
-        return true;
     }
 }

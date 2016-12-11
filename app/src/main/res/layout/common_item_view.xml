@@ -28,7 +28,7 @@
             style="@style/CustomTextStyle12999"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/common_margin"
+            android:layout_marginRight="@dimen/common_margin_15"
             android:visibility="gone"/>
 
         <ImageView
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingBottom="8dp"
-            android:paddingEnd="@dimen/common_margin"
+            android:paddingEnd="@dimen/common_margin_15"
             android:paddingTop="8dp"
             android:visibility="gone"
             tools:ignore="contentDescription"
@@ -51,7 +51,7 @@
         style="@style/CustomTextStyle12999"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/common_margin"
+        android:layout_marginBottom="@dimen/common_margin_15"
         android:paddingEnd="@dimen/common_padding"
         android:paddingStart="@dimen/common_padding"
         android:visibility="gone"
@@ -62,7 +62,7 @@
         android:id="@+id/training_item_view_underline"
         android:layout_width="match_parent"
         android:layout_height="@dimen/separate_line_height"
-        android:layout_marginStart="@dimen/common_margin"
+        android:layout_marginStart="@dimen/common_margin_15"
         android:background="@color/colorAccent"/>
 
 </LinearLayout>

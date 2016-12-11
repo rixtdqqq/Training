@@ -13,6 +13,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.zhuyx.training.activity.TrainingLoginActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/training_title_shape"
+        android:gravity="center"
+        android:paddingBottom="7dp"
+        android:paddingEnd="@dimen/common_margin_10"
+        android:paddingStart="@dimen/common_margin_10"
+        android:paddingTop="7dp"
+        android:text="我的\n简历"
+        android:layout_marginBottom="25dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp" />
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,8 +43,8 @@
             android:id="@+id/training_user_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:imeOptions="actionNext"/>
+            android:imeOptions="actionNext"
+            android:inputType="text" />
 
     </android.support.design.widget.TextInputLayout>
 
@@ -58,17 +74,17 @@
             android:id="@+id/training_user_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:imeOptions="actionGo" />
+            android:imeOptions="actionGo"
+            android:inputType="textEmailAddress" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/training_user_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_margin"
+        android:layout_marginTop="25dp"
         android:background="@drawable/btn_selector"
         android:text="@string/training_login"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/text_common_16sp"/>
+        android:textSize="@dimen/text_common_16sp" />
 </LinearLayout>

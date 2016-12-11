@@ -16,8 +16,8 @@
         android:id="@+id/radio_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/common_margin"
-        android:layout_marginRight="@dimen/common_margin"
+        android:layout_marginLeft="@dimen/common_margin_15"
+        android:layout_marginRight="@dimen/common_margin_15"
         android:orientation="horizontal">
     </RadioGroup>
 

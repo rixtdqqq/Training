@@ -7,7 +7,8 @@
     <!--分隔线的高度-->
     <dimen name="separate_line_height">1dp</dimen>
     <dimen name="common_padding">15dp</dimen>
-    <dimen name="common_margin">15dp</dimen>
+    <dimen name="common_margin_15">15dp</dimen>
+    <dimen name="common_margin_10">10dp</dimen>
     <!--文字与图片间隔-->
     <dimen name="common_draw_padding">6dp</dimen>
 
