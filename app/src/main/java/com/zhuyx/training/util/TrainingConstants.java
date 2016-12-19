@@ -23,6 +23,13 @@ public final class TrainingConstants {
      */
     public static final String FRAGMENT_FLAG = "fragment_flag";
 
+    public static final String USERNAME = "z";
+    public static final String PASSWORD = "1";
+    public static final String USERNAME_KEY = "username";
+    public static final String PASSWORD_KEY = "password";
+    public static final String LINK_TYPE_TEL = "tel";
+    public static final String LINK_TYPE_EMAIL = "email";
+
     /******************** 正则相关常量 ********************/
     /**
      * 正则：手机号（简单）
@@ -122,4 +129,6 @@ public final class TrainingConstants {
     public static final String REGEX_NEGATIVE_FLOAT = "^-[1-9]\\d*\\.\\d*|-0\\.\\d*[1-9]\\d*$";
 
 /************** If u want more please visit http://toutiao.com/i6231678548520731137/ **************/
+
+
 }

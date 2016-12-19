@@ -19,9 +19,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:drawablePadding="@dimen/common_padding"
-            android:padding="@dimen/common_padding"
-            tools:text="title"/>
+            android:drawablePadding="@dimen/common_padding_10"
+            android:padding="@dimen/common_padding_10"
+            tools:text="标题"/>
 
         <TextView
             android:id="@+id/training_content_right"
@@ -29,7 +29,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/common_margin_15"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            tools:visibility="visible"/>
 
         <ImageView
             android:id="@+id/training_item_view_right_iv"
@@ -40,7 +41,7 @@
             android:paddingTop="8dp"
             android:visibility="gone"
             tools:ignore="contentDescription"
-            tools:src="@mipmap/ic_launcher"
+            tools:src="@mipmap/training_arrow_right"
             tools:visibility="visible"/>
 
 
@@ -52,10 +53,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/common_margin_15"
-        android:paddingEnd="@dimen/common_padding"
-        android:paddingStart="@dimen/common_padding"
+        android:paddingEnd="@dimen/common_padding_10"
+        android:paddingStart="@dimen/common_padding_10"
         android:visibility="gone"
-        tools:text="content"
+        tools:text="内容"
         tools:visibility="visible"/>
 
     <View
@@ -63,6 +64,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/separate_line_height"
         android:layout_marginStart="@dimen/common_margin_15"
-        android:background="@color/colorAccent"/>
+        android:background="@color/color_d1d0d3"/>
 
 </LinearLayout>

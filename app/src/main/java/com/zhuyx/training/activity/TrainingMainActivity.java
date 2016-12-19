@@ -1,5 +1,6 @@
 package com.zhuyx.training.activity;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.zhuyx.training.fragment.Blank3Fragment;
 import com.zhuyx.training.fragment.Blank4Fragment;
 import com.zhuyx.training.fragment.Blank5Fragment;
 import com.zhuyx.training.fragment.Blank6Fragment;
+import com.zhuyx.training.util.TrainingConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,9 +97,11 @@ public class TrainingMainActivity extends TrainingBaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent();
         switch (item.getItemId()) {
             case R.id.about:
-                showSnakeBar("关于", toolbar);
+                intent.setClass(this, TrainingEventActivity.class);
+                intent.putExtra(TrainingConstants.FRAGMENT_FLAG, "AboutFragment");
                 break;
             case R.id.feedback:
                 showSnakeBar("意见反馈", toolbar);
@@ -108,7 +112,10 @@ public class TrainingMainActivity extends TrainingBaseActivity {
             case R.id.search:
                 showSnakeBar("搜索", toolbar);
                 break;
+            default:
+                break;
         }
+        startActivity(intent);
         return super.onOptionsItemSelected(item);
     }
 

@@ -78,7 +78,7 @@ public class Blank2Fragment extends TrainingBaseFragment {
                 .crossFade(300)//淡入淡出动画
                 .into(mImageView);
         Glide.with(Blank2Fragment.this)//本地图片
-                .load(R.mipmap.back)
+                .load(R.mipmap.training_back)
                 .placeholder(R.mipmap.ic_launcher)
                 .dontAnimate()//不需要动画
                 .override(48, 48)//如果你知道这个图片多少大，用 override 去提供明确的尺寸

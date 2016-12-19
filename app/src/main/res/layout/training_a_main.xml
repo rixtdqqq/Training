@@ -41,7 +41,7 @@
                 app:contentInsetStart="0dp"
                 app:contentInsetStartWithNavigation="0dp"
                 app:logo="@mipmap/weixin_icon"
-                app:navigationIcon="@mipmap/back"
+                app:navigationIcon="@mipmap/training_back"
                 app:popupTheme="@style/AppToolbarPopup"
                 app:subtitleTextColor="@android:color/white"
                 app:theme="@style/AppToolbar"
@@ -104,9 +104,7 @@
                 android:layout_gravity="start"
                 android:background="@color/color_d1d0d3"
                 app:headerLayout="@layout/training_nav_header_drawer"
-                app:itemBackground="?attr/colorPrimary"
-                app:itemIconTint="?attr/colorPrimaryDark"
-                app:itemTextColor="@android:color/white"
+                app:itemTextColor="@color/color_4d4c59"
                 app:menu="@menu/training_menu_drawer" />
         </android.support.v4.widget.DrawerLayout>
     </LinearLayout>

@@ -18,4 +18,17 @@
     <string name="training_email">邮箱:rixtdqqq_2015@163.com</string>
     <string name="training_open">打开</string>
     <string name="training_close">关闭</string>
+    <string name="training_input_correct_username">请输入用户名</string>
+    <string name="training_input_correct_password">请输入密码</string>
+    <string name="training_input_correct_email">请输入正确的邮箱</string>
+    <string name="training_user_name_pwd_not_correct">用户名或密码不正确</string>
+    <string name="training_my_resume">我的\n简历</string>
+    <string name="training_about_resume">关于简历</string>
+    <string name="training_email_title">邮箱</string>
+    <string name="training_we_chat">微信</string>
+    <string name="training_tel_title">电话</string>
+    <string name="training_qq_title">QQ</string>
+    <string name="training_contact_me">联系我</string>
+    <string name="training_resume_instruction">简历中包含有本人的基本信息，教育经历，工作履历。</string>
+    <string name="training_version_name">版本 v1.0</string>
 </resources>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/padding_view"
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:background="@color/colorPrimary"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetEnd="0dp"
+        app:contentInsetEndWithActions="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:navigationIcon="@mipmap/training_back"
+        app:popupTheme="@style/AppToolbarPopup"
+        app:theme="@style/AppToolbar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:text="@string/training_about_resume"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </android.support.v7.widget.Toolbar>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/training_title_shape"
+        android:gravity="center"
+        android:paddingBottom="7dp"
+        android:paddingEnd="@dimen/common_margin_10"
+        android:paddingStart="@dimen/common_margin_10"
+        android:paddingTop="7dp"
+        android:text="@string/training_my_resume"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="@dimen/common_margin_10"
+        android:gravity="center"
+        android:text="@string/training_version_name"
+        android:textColor="@color/color_4d4c59"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/training_resume_instruction"
+        style="@style/CustomTextStyle12666"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="@dimen/common_margin_15"
+        android:layout_marginStart="@dimen/common_margin_15"
+        android:text="@string/training_resume_instruction" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_margin_10"
+        android:layout_marginStart="@dimen/common_margin_15"
+        android:text="@string/training_contact_me"
+        android:textColor="@color/color_4d4c59"
+        android:textSize="@dimen/text_common_14sp" />
+
+    <com.zhuyx.training.widget.TrainingAboutItemView
+        android:id="@+id/training_tel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_margin_15"
+        android:layout_marginStart="@dimen/common_margin_15"
+        app:aboutContent="13113603702"
+        app:aboutTitle="@string/training_tel_title" />
+
+    <com.zhuyx.training.widget.TrainingAboutItemView
+        android:id="@+id/training_qq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_margin_15"
+        android:layout_marginStart="@dimen/common_margin_15"
+        app:aboutContent="2951589923"
+        app:aboutTitle="@string/training_qq_title" />
+
+    <com.zhuyx.training.widget.TrainingAboutItemView
+        android:id="@+id/training_we_chat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_margin_15"
+        android:layout_marginStart="@dimen/common_margin_15"
+        app:aboutContent="rixtdqqq"
+        app:aboutTitle="@string/training_we_chat" />
+
+    <com.zhuyx.training.widget.TrainingAboutItemView
+        android:id="@+id/training_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_margin_15"
+        android:layout_marginStart="@dimen/common_margin_15"
+        app:aboutContent="rixtdqqq_2015@163.com"
+        app:aboutTitle="@string/training_email_title"
+        app:aboutUnderlineShow="false" />
+
+</LinearLayout>

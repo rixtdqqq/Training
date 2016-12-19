@@ -18,4 +18,17 @@
     <string name="training_email">Email:rixtdqqq_2015@163.com</string>
     <string name="training_open">Open</string>
     <string name="training_close">Close</string>
+    <string name="training_input_correct_username">Input correct username</string>
+    <string name="training_input_correct_password">Input correct password</string>
+    <string name="training_input_correct_email">Input correct email</string>
+    <string name="training_user_name_pwd_not_correct">username or password is not correct.</string>
+    <string name="training_my_resume">MY\nRESUME</string>
+    <string name="training_about_resume">About&#160;Resume</string>
+    <string name="training_email_title">Email</string>
+    <string name="training_we_chat">WeChat</string>
+    <string name="training_tel_title">Tel</string>
+    <string name="training_qq_title">QQ</string>
+    <string name="training_contact_me">Contact&#160;Me</string>
+    <string name="training_resume_instruction">简历中包含有本人的基本信息，教育经历，工作履历。</string>
+    <string name="training_version_name">version v1.0</string>
 </resources>

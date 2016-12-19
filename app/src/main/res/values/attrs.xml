@@ -16,4 +16,10 @@
         <!--是否展示下划线-->
         <attr name="commonUnderlineShow" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="TrainingAboutItemView">
+        <attr name="aboutTitle" format="string|reference" />
+        <attr name="aboutContent" format="string|reference" />
+        <attr name="aboutUnderlineShow" format="boolean" />
+    </declare-styleable>
 </resources>

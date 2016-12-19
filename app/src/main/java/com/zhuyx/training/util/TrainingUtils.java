@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 
 import java.io.File;
 import java.util.HashMap;
@@ -27,21 +29,24 @@ public final class TrainingUtils {
         return Uri.parse(TrainingConstants.ANDROID_RESOURCE + context.getPackageName() + TrainingConstants.FORWARD_SLASH + resourceId);
     }
 
-    public static void saveUsername(Context context, String username, String password) {
+    /**
+     * 保存用户名和密码
+     */
+    public static void saveUsernameAndPwd(Context context, String username, String password) {
         SharedPreferences preferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("username", username);
-        editor.putString("password", password);
+        editor.putString(TrainingConstants.USERNAME_KEY, username);
+        editor.putString(TrainingConstants.PASSWORD_KEY, password);
         editor.commit();
     }
 
     public static Map<String, String> getUsername(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
-        String username = preferences.getString("username", "");
-        String password = preferences.getString("password", "");
+        String username = preferences.getString(TrainingConstants.USERNAME_KEY, "");
+        String password = preferences.getString(TrainingConstants.PASSWORD_KEY, "");
         Map<String, String> user = new HashMap<>();
-        user.put("username", username);
-        user.put("password", password);
+        user.put(TrainingConstants.USERNAME_KEY, username);
+        user.put(TrainingConstants.PASSWORD_KEY, password);
         return user;
     }
 
@@ -71,5 +76,9 @@ public final class TrainingUtils {
         intent.putExtra(Intent.EXTRA_TEXT, msgText);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(Intent.createChooser(intent, activityTitle));
+    }
+
+    public static void showMsg(View view, String text) {
+        Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
     }
 }

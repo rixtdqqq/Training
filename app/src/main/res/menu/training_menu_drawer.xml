@@ -1,16 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/training_home"
+            android:icon="@mipmap/training_home"
+            android:title="主页" />
+        <item
+            android:id="@+id/training_theme"
+            android:icon="@mipmap/training_theme"
+            android:title="主题" />
+    </group>
+    <item
+        android:id="@+id/training_share"
+        android:icon="@mipmap/training_share"
+        android:title="@string/training_share" />
 
-    <item android:id="@+id/training_share"
-        android:title="@string/training_share"/>
-    <item android:id="@+id/training_tools"
-        android:title="@string/training_tools"/>
-    <item android:id="@+id/training_collect"
-        android:title="@string/training_collect"/>
-    <item android:id="@+id/training_gallery"
-        android:title="@string/training_gallery"/>
-    <item android:id="@+id/training_wallet"
-        android:title="@string/training_wallet"/>
-    <item android:id="@+id/training_settings"
-        android:title="@string/training_settings"/>
+    <item
+        android:id="@+id/training_settings"
+        android:icon="@mipmap/training_settings"
+        android:title="@string/training_settings" />
+    <item android:title="二级菜单">
+        <menu>
+            <item
+                android:id="@+id/training_tools"
+                android:icon="@mipmap/training_tools"
+                android:title="@string/training_tools" />
+            <item
+                android:id="@+id/training_collect"
+                android:icon="@mipmap/training_collect"
+                android:title="@string/training_collect" />
+        </menu>
+    </item>
+
 </menu>

@@ -5,8 +5,9 @@
     <dimen name="text_common_14sp">14sp</dimen>
     <dimen name="text_common_12sp">12sp</dimen>
     <!--分隔线的高度-->
-    <dimen name="separate_line_height">1dp</dimen>
-    <dimen name="common_padding">15dp</dimen>
+    <dimen name="separate_line_height">0.5dp</dimen>
+    <dimen name="common_padding_15">15dp</dimen>
+    <dimen name="common_padding_10">10dp</dimen>
     <dimen name="common_margin_15">15dp</dimen>
     <dimen name="common_margin_10">10dp</dimen>
     <!--文字与图片间隔-->

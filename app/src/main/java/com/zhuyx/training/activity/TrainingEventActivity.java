@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import com.zhuyx.training.R;
 import com.zhuyx.training.base.TrainingBaseActivity;
 import com.zhuyx.training.base.TrainingBaseFragment;
+import com.zhuyx.training.fragment.AboutFragment;
 import com.zhuyx.training.fragment.Blank7Fragment;
 import com.zhuyx.training.fragment.Blank8Fragment;
 import com.zhuyx.training.fragment.Blank9Fragment;
@@ -51,6 +52,10 @@ public class TrainingEventActivity extends TrainingBaseActivity {
         } else if (TextUtils.equals(fragmentFlag, "Blank9Fragment")) {
             if (null == mFragment) {
                 mFragment = new Blank9Fragment();
+            }
+        } else if (TextUtils.equals(fragmentFlag, "AboutFragment")) {
+            if (null == mFragment) {
+                mFragment = new AboutFragment();
             }
         }
         changeFragment(mFragment);

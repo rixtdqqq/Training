@@ -40,7 +40,7 @@ public class Blank7Fragment extends TrainingBaseFragment implements CommonTopBar
      * 初始化 topBar
      */
     private void handleTopBar(CommonTopBar topBar) {
-        topBar.setLeftView(R.mipmap.back);
+        topBar.setLeftView(R.mipmap.training_back);
         topBar.setCenterView("blank7");
         topBar.setOnTopBarClickListener(this);
     }
