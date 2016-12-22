@@ -29,6 +29,8 @@ public final class TrainingConstants {
     public static final String PASSWORD_KEY = "password";
     public static final String LINK_TYPE_TEL = "tel";
     public static final String LINK_TYPE_EMAIL = "email";
+    public static final String QQ_LOGIN_APP_ID = "";
+    public static final String QQ_LOGIN_APP_KEY = "";
 
     /******************** 正则相关常量 ********************/
     /**

@@ -31,4 +31,7 @@
     <string name="training_contact_me">Contact&#160;Me</string>
     <string name="training_resume_instruction">简历中包含有本人的基本信息，教育经历，工作履历。</string>
     <string name="training_version_name">version v1.0</string>
+    <string name="training_position">Position</string>
+    <string name="training_theme">Theme</string>
+    <string name="training_second_menu">Second Menu</string>
 </resources>

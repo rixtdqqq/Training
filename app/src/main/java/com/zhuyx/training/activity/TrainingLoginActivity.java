@@ -10,12 +10,27 @@ import android.util.Patterns;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.tencent.connect.UserInfo;
+import com.tencent.connect.auth.QQAuth;
+import com.tencent.open.utils.HttpUtils;
+import com.tencent.tauth.IRequestListener;
+import com.tencent.tauth.IUiListener;
+import com.tencent.tauth.Tencent;
+import com.tencent.tauth.UiError;
 import com.zhuyx.training.R;
 import com.zhuyx.training.base.TrainingBaseActivity;
 import com.zhuyx.training.util.TrainingConstants;
 import com.zhuyx.training.util.TrainingUtils;
 
+import org.apache.http.conn.ConnectTimeoutException;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.SocketTimeoutException;
 import java.util.Map;
 
 public class TrainingLoginActivity extends TrainingBaseActivity {
@@ -23,6 +38,8 @@ public class TrainingLoginActivity extends TrainingBaseActivity {
     private TextInputEditText etUserName, etPassword, etEmail;
     private Button btnLogin;
     private ImageView qqLogin;
+    private Tencent mTencent;
+    private boolean isServerSideLogin;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,7 +49,6 @@ public class TrainingLoginActivity extends TrainingBaseActivity {
 
     @Override
     public void initData() {
-
     }
 
     @Override
@@ -71,7 +87,12 @@ public class TrainingLoginActivity extends TrainingBaseActivity {
             return false;
         });
         qqLogin.setOnClickListener(v -> {
-            
+            mTencent = Tencent.createInstance(TrainingConstants.QQ_LOGIN_APP_ID, getApplicationContext());
+            if (TextUtils.isEmpty(TrainingConstants.QQ_LOGIN_APP_ID)) {
+                Toast.makeText(this, "No qq login app id,apply one first.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            onClickLogin();
         });
     }
 
@@ -100,6 +121,117 @@ public class TrainingLoginActivity extends TrainingBaseActivity {
             } else {
                 Snackbar.make(btnLogin, R.string.training_user_name_pwd_not_correct, Snackbar.LENGTH_SHORT).show();
                 return false;
+            }
+        }
+    }
+
+    private class BaseApiListener implements IRequestListener {
+        @Override
+        public void onComplete(JSONObject jsonObject) {
+
+        }
+
+        @Override
+        public void onIOException(IOException e) {
+
+        }
+
+        @Override
+        public void onMalformedURLException(MalformedURLException e) {
+
+        }
+
+        @Override
+        public void onJSONException(JSONException e) {
+
+        }
+
+        @Override
+        public void onConnectTimeoutException(ConnectTimeoutException e) {
+
+        }
+
+        @Override
+        public void onSocketTimeoutException(SocketTimeoutException e) {
+
+        }
+
+        @Override
+        public void onNetworkUnavailableException(HttpUtils.NetworkUnavailableException e) {
+
+        }
+
+        @Override
+        public void onHttpStatusException(HttpUtils.HttpStatusException e) {
+
+        }
+
+        @Override
+        public void onUnknowException(Exception e) {
+
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Tencent.onActivityResultData(requestCode,resultCode,data,new BaseUiListener());
+    }
+
+    private void onClickLogin() {
+        if (!mTencent.isSessionValid()) {
+            mTencent.login(this, "all", loginListener);
+            isServerSideLogin = false;
+        } else {
+            if (isServerSideLogin) { // Server-Side 模式的登陆, 先退出，再进行SSO登陆
+                mTencent.logout(this);
+                mTencent.login(this, "all", loginListener);
+                isServerSideLogin = false;
+                return;
+            }
+            mTencent.logout(this);
+        }
+    }
+
+    IUiListener loginListener = new BaseUiListener() {
+        @Override
+        protected void doComplete(JSONObject values) {
+//            initOpenidAndToken(values);
+//            updateUserInfo();
+//            updateLoginButton();
+        }
+    };
+
+    private class BaseUiListener implements IUiListener {
+
+        @Override
+        public void onComplete(Object response) {
+            if (null == response) {
+//                Util.showResultDialog(MainActivity.this, "返回为空", "登录失败");
+                return;
+            }
+            JSONObject jsonResponse = (JSONObject) response;
+            if (jsonResponse.length() == 0) {
+//                Util.showResultDialog(MainActivity.this, "返回为空", "登录失败");
+                return;
+            }
+//            Util.showResultDialog(MainActivity.this, response.toString(), "登录成功");
+            // 有奖分享处理
+//            handlePrizeShare();
+            doComplete((JSONObject)response);
+        }
+
+        protected void doComplete(JSONObject values) {
+
+        }
+
+        @Override
+        public void onError(UiError e) {
+        }
+
+        @Override
+        public void onCancel() {
+            if (isServerSideLogin) {
+                isServerSideLogin = false;
             }
         }
     }

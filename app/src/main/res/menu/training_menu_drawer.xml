@@ -2,13 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/training_home"
-            android:icon="@mipmap/training_home"
-            android:title="主页" />
-        <item
             android:id="@+id/training_theme"
             android:icon="@mipmap/training_theme"
-            android:title="主题" />
+            android:title="@string/training_theme" />
     </group>
     <item
         android:id="@+id/training_share"
@@ -19,7 +15,7 @@
         android:id="@+id/training_settings"
         android:icon="@mipmap/training_settings"
         android:title="@string/training_settings" />
-    <item android:title="二级菜单">
+    <item android:title="@string/training_second_menu">
         <menu>
             <item
                 android:id="@+id/training_tools"
@@ -29,6 +25,10 @@
                 android:id="@+id/training_collect"
                 android:icon="@mipmap/training_collect"
                 android:title="@string/training_collect" />
+            <item
+                android:id="@+id/training_position"
+                android:icon="@mipmap/training_position"
+                android:title="@string/training_position" />
         </menu>
     </item>
 
