@@ -8,10 +8,11 @@ import android.text.TextUtils;
 import com.zhuyx.training.R;
 import com.zhuyx.training.base.TrainingBaseActivity;
 import com.zhuyx.training.base.TrainingBaseFragment;
-import com.zhuyx.training.fragment.AboutFragment;
+import com.zhuyx.training.fragment.TrainingAboutFragment;
 import com.zhuyx.training.fragment.Blank7Fragment;
-import com.zhuyx.training.fragment.Blank8Fragment;
-import com.zhuyx.training.fragment.Blank9Fragment;
+import com.zhuyx.training.fragment.TrainingToolsFragment;
+import com.zhuyx.training.fragment.TrainingCollectionFragment;
+import com.zhuyx.training.fragment.TrainingPositionFragment;
 import com.zhuyx.training.util.TrainingConstants;
 
 public class TrainingEventActivity extends TrainingBaseActivity {
@@ -45,17 +46,25 @@ public class TrainingEventActivity extends TrainingBaseActivity {
             if (null == mFragment) {
                 mFragment = new Blank7Fragment();
             }
-        } else if (TextUtils.equals(fragmentFlag, "Blank8Fragment")) {
+        } else if (TextUtils.equals(fragmentFlag, TrainingConstants.TRAINING_TOOLS_FRAGMENT)) {//工具界面
             if (null == mFragment) {
-                mFragment = new Blank8Fragment();
+                mFragment = new TrainingToolsFragment();
             }
-        } else if (TextUtils.equals(fragmentFlag, "Blank9Fragment")) {
+        } else if (TextUtils.equals(fragmentFlag, TrainingConstants.TRAINING_COLLECTION_FRAGMENT)) {//收藏界面
             if (null == mFragment) {
-                mFragment = new Blank9Fragment();
+                mFragment = new TrainingCollectionFragment();
             }
-        } else if (TextUtils.equals(fragmentFlag, "AboutFragment")) {
+        } else if (TextUtils.equals(fragmentFlag, TrainingConstants.TRAINING_ABOUT_FRAGMENT)) {//关于界面
             if (null == mFragment) {
-                mFragment = new AboutFragment();
+                mFragment = new TrainingAboutFragment();
+            }
+        } else if (TextUtils.equals(fragmentFlag, TrainingConstants.TRAINING_POSITION_FRAGMENT)) {//定位界面
+            if (null == mFragment) {
+                mFragment = new TrainingPositionFragment();
+            }
+        } else {
+            if (null == mFragment) {
+                mFragment = new TrainingAboutFragment();
             }
         }
         changeFragment(mFragment);

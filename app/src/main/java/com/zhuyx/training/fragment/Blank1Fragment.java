@@ -69,7 +69,7 @@ public class Blank1Fragment extends Fragment {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onEventMainThread(TrainingEventEntity entity){
-        Toast.makeText(getActivity(), entity.getMsg(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), entity.getName(), Toast.LENGTH_SHORT).show();
     }
 
     @Override

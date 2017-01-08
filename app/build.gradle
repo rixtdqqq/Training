@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
-//http://blog.csdn.net/lipeng32768/article/details/51685081百度地图用法
+
 android {
     signingConfigs {
         config {
@@ -45,12 +45,16 @@ android {
     sourceSets {
         main {
             java.srcDirs = ['src/main/java', 'src/main/java-gen']
+            jniLibs.srcDirs = ['libs']
         }
     }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    //    qq第三方登录需要的两个包
+    compile files('libs/mta-sdk-1.6.2.jar')
+    compile files('libs/open_sdk_r5756.jar')
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:design:24.2.1'
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -60,7 +64,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.android.support:support-v4:24.2.1'
     compile 'de.greenrobot:greendao:2.1.0'
-    //    qq第三方登录需要的两个包
-    compile files('libs/mta-sdk-1.6.2.jar')
-    compile files('libs/open_sdk_r5756.jar')
+    compile files('libs/IndoorscapeAlbumPlugin.jar')
+    compile files('libs/httpmime-4.1.2.jar')
+    compile files('libs/BaiduLBS_Android.jar')
 }

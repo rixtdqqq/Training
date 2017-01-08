@@ -4,11 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.support.design.widget.Snackbar;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
+
+import com.zhuyx.training.entity.TrainingEventEntity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -81,4 +92,65 @@ public final class TrainingUtils {
     public static void showMsg(View view, String text) {
         Snackbar.make(view, text, Snackbar.LENGTH_LONG).show();
     }
+
+    /**
+     * 19以上版本标题显示
+     */
+    public static void setTitlePaddingView(View view) {
+        if (Build.VERSION_CODES.KITKAT >= Build.VERSION.SDK_INT) {
+            view.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public static Map<String, List<TrainingEventEntity>> dealResult(Context context, String result) {
+        List<TrainingEventEntity> list = dealStringResult(result, context);
+        Map<String, List<TrainingEventEntity>> listMap = new HashMap<>();
+        for (int i = 0, size = list.size(); i < size; i++) {
+            TrainingEventEntity entity = list.get(i);
+            String id = entity.getId();
+            if (listMap.containsKey(id)) {
+                List<TrainingEventEntity> entities = listMap.get(id);
+                entities.add(entity);
+                listMap.put(id, entities);
+            } else {
+                List<TrainingEventEntity> entities = new ArrayList<>();
+                entities.add(entity);
+                listMap.put(id, entities);
+            }
+        }
+        return listMap;
+    }
+
+    private static List<TrainingEventEntity> dealStringResult(String result, Context context) {
+        List<TrainingEventEntity> list = new ArrayList<>();
+        try {
+            if (TextUtils.isEmpty(result)) {
+                return null;
+            }
+            JSONObject object = new JSONObject(result);
+            String msg = "";
+            String status = "";
+            if (object.has("msg")) {
+                msg = object.getString("msg");
+            }
+            if (object.has("status")) {
+                status = object.getString("status");
+            }
+            if (TextUtils.equals("1", status)) {
+                JSONArray array = object.getJSONArray("data");
+                TrainingEventEntity entity;
+                for (int i = 0, length = array.length(); i < length; i++) {
+                    JSONObject jsonObject = array.getJSONObject(i);
+                    entity = new TrainingEventEntity(jsonObject.getString("name"), jsonObject.getString("id"));
+                    list.add(entity);
+                }
+            } else {
+                Toast.makeText(context, msg, Toast.LENGTH_LONG).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
 }

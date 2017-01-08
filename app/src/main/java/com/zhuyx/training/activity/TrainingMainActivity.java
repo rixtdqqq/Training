@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -27,6 +29,7 @@ import com.zhuyx.training.fragment.Blank4Fragment;
 import com.zhuyx.training.fragment.Blank5Fragment;
 import com.zhuyx.training.fragment.Blank6Fragment;
 import com.zhuyx.training.util.TrainingConstants;
+import com.zhuyx.training.util.TrainingUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,10 +44,12 @@ public class TrainingMainActivity extends TrainingBaseActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     private Toolbar toolbar;
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initListener();
     }
 
     @Override
@@ -71,8 +76,9 @@ public class TrainingMainActivity extends TrainingBaseActivity {
     public void initView() {
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         viewPager = (ViewPager) findViewById(R.id.view_pager);
-        drawerLayout = (DrawerLayout) findViewById(R.id.training_a_main);
+        drawerLayout = (DrawerLayout) findViewById(R.id.training_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         handleToolbar();
         //配置ActionBarDrawerToggle
         toggleSettings();
@@ -83,10 +89,7 @@ public class TrainingMainActivity extends TrainingBaseActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-        TextView paddingView = (TextView) findViewById(R.id.padding_view);
-        if (Build.VERSION_CODES.KITKAT >= Build.VERSION.SDK_INT) {
-            paddingView.setVisibility(View.VISIBLE);
-        }
+        TrainingUtils.setTitlePaddingView(findViewById(R.id.padding_view));
     }
 
     @Override
@@ -97,11 +100,10 @@ public class TrainingMainActivity extends TrainingBaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent();
+        Intent intent = new Intent(this, TrainingEventActivity.class);
         switch (item.getItemId()) {
-            case R.id.about:
-                intent.setClass(this, TrainingEventActivity.class);
-                intent.putExtra(TrainingConstants.FRAGMENT_FLAG, "AboutFragment");
+            case R.id.about: //关于
+                intent.putExtra(TrainingConstants.FRAGMENT_FLAG, TrainingConstants.TRAINING_ABOUT_FRAGMENT);
                 break;
             case R.id.feedback:
                 showSnakeBar("意见反馈", toolbar);
@@ -126,9 +128,27 @@ public class TrainingMainActivity extends TrainingBaseActivity {
     private void toggleSettings() {
         toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.training_open, R.string.training_close);
         drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        toggle.syncState();//初始化状态
     }
 
+    private void initListener() {
+        mNavigationView.setNavigationItemSelectedListener(item ->  {
+                Intent intent = new Intent(TrainingMainActivity.this,TrainingEventActivity.class);
+                switch (item.getItemId()) {
+                    case R.id.training_position://定位界面
+                        intent.putExtra(TrainingConstants.FRAGMENT_FLAG, TrainingConstants.TRAINING_POSITION_FRAGMENT);
+                        break;
+                    case R.id.training_collect://收藏界面
+                        intent.putExtra(TrainingConstants.FRAGMENT_FLAG, TrainingConstants.TRAINING_COLLECTION_FRAGMENT);
+                        break;
+                    case R.id.training_tools://工具界面
+                        intent.putExtra(TrainingConstants.FRAGMENT_FLAG, TrainingConstants.TRAINING_TOOLS_FRAGMENT);
+                        break;
+                }
+                TrainingMainActivity.this.startActivity(intent);
+                return false;
+            });
+    }
     @Override
     public void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);

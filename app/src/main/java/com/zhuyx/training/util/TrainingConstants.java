@@ -22,6 +22,22 @@ public final class TrainingConstants {
      * fragment的标记，用于判断加载哪个fragment
      */
     public static final String FRAGMENT_FLAG = "fragment_flag";
+    /**
+     * 关于界面
+     */
+    public static final String TRAINING_ABOUT_FRAGMENT = "TrainingAboutFragment";
+    /**
+     * 地图定位界面
+     */
+    public static final String TRAINING_POSITION_FRAGMENT = "TrainingPositionFragment";
+    /**
+     * 收藏界面
+     */
+    public static final String TRAINING_COLLECTION_FRAGMENT = "TrainingCollectionFragment";
+    /**
+     * 工具界面
+     */
+    public static final String TRAINING_TOOLS_FRAGMENT = "TrainingToolsFragment";
 
     public static final String USERNAME = "z";
     public static final String PASSWORD = "1";
@@ -31,6 +47,7 @@ public final class TrainingConstants {
     public static final String LINK_TYPE_EMAIL = "email";
     public static final String QQ_LOGIN_APP_ID = "";
     public static final String QQ_LOGIN_APP_KEY = "";
+    public static final String BAIDU_API_KEY = "IGqb4TICHio1sg8qPlyUYutzOoOsL0LQ";
 
     /******************** 正则相关常量 ********************/
     /**

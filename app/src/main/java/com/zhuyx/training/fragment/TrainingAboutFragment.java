@@ -20,7 +20,7 @@ import com.zhuyx.training.widget.TrainingAboutItemView;
  * Created by Administrator on 2016/12/18.
  */
 
-public class AboutFragment extends TrainingBaseFragment {
+public class TrainingAboutFragment extends TrainingBaseFragment {
     private Toolbar toolbar;
     private TrainingAboutItemView telView, qqView, weChatView, emailView;
 
@@ -41,10 +41,7 @@ public class AboutFragment extends TrainingBaseFragment {
         qqView.setContentViewTextColor(mResources.getColor(R.color.colorPrimary));
         weChatView.setContentAutoLink(false,"");
         emailView.setContentAutoLink(true,TrainingConstants.LINK_TYPE_EMAIL);
-        TextView paddingView = (TextView) view.findViewById(R.id.padding_view);
-        if (Build.VERSION_CODES.KITKAT >= Build.VERSION.SDK_INT) {
-            paddingView.setVisibility(View.VISIBLE);
-        }
+        TrainingUtils.setTitlePaddingView(view.findViewById(R.id.padding_view));
     }
 
     @Override

@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
 
-        <TextView
+        <View
             android:id="@+id/padding_view"
             android:layout_width="match_parent"
             android:layout_height="22dp"
@@ -40,7 +40,7 @@
                 app:contentInsetLeft="0dp"
                 app:contentInsetStart="0dp"
                 app:contentInsetStartWithNavigation="0dp"
-                app:logo="@mipmap/weixin_icon"
+                app:logo="@mipmap/training_home"
                 app:navigationIcon="@mipmap/training_back"
                 app:popupTheme="@style/AppToolbarPopup"
                 app:subtitleTextColor="@android:color/white"
@@ -69,7 +69,7 @@
         </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.widget.DrawerLayout
-            android:id="@+id/training_a_main"
+            android:id="@+id/training_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

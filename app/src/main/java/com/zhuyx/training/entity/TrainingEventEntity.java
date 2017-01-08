@@ -6,13 +6,23 @@ package com.zhuyx.training.entity;
  */
 
 public class TrainingEventEntity {
-    private String msg;
+    private String name;
+    private String id;
 
-    public TrainingEventEntity(String msg) {
-        this.msg = msg;
+    public TrainingEventEntity(String name) {
+        this.name = name;
     }
 
-    public String getMsg() {
-        return msg;
+    public TrainingEventEntity(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
     }
 }
